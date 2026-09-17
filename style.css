@@ -1,0 +1,62 @@
+body {
+    background-color: #f0f4ff;
+    margin: 0;
+    height: 100vh;           /* 画面の高さいっぱいに広げる */
+    display: flex;
+    justify-content: center; /* 左右の中央揃え */
+    align-items: center;     /* 上下の中央揃え */
+    font-family: "Segoe UI", sans-serif;
+    font-size: 0.9em;
+    color: #333;
+    overflow: hidden;
+    cursor: none; /* 通常カーソルは非表示 */
+}
+
+/* 🐏 カーソル本体 */
+#cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, #f2ede5 70%, #d8d2c5 100%);
+    box-shadow: 0 0 6px rgba(255,255,255,0.7);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s linear;
+    z-index: 1000;
+}
+
+/* 🐑 羊毛のふわふわ粒 */
+.wool {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #fffacd 0%, #ffd700 60%, transparent 100%);
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    box-shadow: 0 0 10px rgba(255,215,0,0.8);
+    pointer-events: none;
+    animation: float 1.2s ease-out forwards;
+}
+
+@keyframes float {
+    0% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg) translate(0, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.6) rotate(180deg) translate(15px, -30px);
+    }
+}
+
