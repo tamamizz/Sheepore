@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>(・ェ・) Sheepore (・ェ・)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="cursor"></div>
+<script>
+    const cursor = document.getElementById("cursor");
+
+    document.addEventListener("mousemove", e => {
+        // カーソルの位置を追従
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+
+        // 羊毛粒を生成
+        const wool = document.createElement("span");
+        wool.className = "wool";
+        const size = Math.random() * 8 + 6;
+        wool.style.width = size + "px";
+        wool.style.height = size + "px";
+        wool.style.left = e.pageX + "px";
+        wool.style.top = e.pageY + "px";
+        wool.style.animationDuration = (Math.random() * 0.8 + 0.8) + "s";
+        document.body.appendChild(wool);
+
+        setTimeout(() => wool.remove(), 1200);
+      });
+</script>
+    <a href="e.html">--- enter ---</a>
+</body>
+</html>
